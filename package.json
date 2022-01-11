@@ -7,7 +7,7 @@
         "build": "ng build",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
-        "test:headless": "npm run ng -- test --no-watch --no-progress --browsers=ChromeHeadlessCI",
+        "test:ci": "npm run ng -- test --no-watch --no-progress --browsers=ChromeHeadlessCI",
         "lint": "ng lint",
         "lint:fix": "ng lint --fix",
         "prettier": "prettier --config ./.prettierrc.json --write src/**/*{ts,js,css,html}",
@@ -52,12 +52,6 @@
         "lint-staged": "^12.1.7",
         "prettier": "^2.5.1",
         "typescript": "~4.5.2"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged",
-            "pre-push": "npm run test:headless"
-        }
     },
     "lint-staged": {
         "*.ts": [
