@@ -1,0 +1,12 @@
+$searchTagSize: 2rem;
+
+.search-form {
+    &__tags {
+        min-height: $searchTagSize;
+    }
+
+    &__tag {
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+}

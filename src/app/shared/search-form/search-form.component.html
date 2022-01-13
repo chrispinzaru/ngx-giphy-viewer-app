@@ -1,17 +1,38 @@
 <div class="search-form">
     <div class="card">
         <div class="card-body">
-            <form class="form-inline">
+            <form
+                class="form-inline"
+                [formGroup]="searchForm"
+                (submit)="onSubmit()"
+            >
                 <input
+                    #searchInput
+                    formControlName="query"
                     type="text"
                     class="form-control flex-sm-fill mr-2"
-                    placeholder="Search"
+                    placeholder="Type in search keywords..."
+                    autocomplete="off"
                     name="searchTerm"
                 />
-                <button type="submit" class="btn btn-primary">Search</button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    [disabled]="searchInput.value.length == 0"
+                >
+                    Search
+                </button>
             </form>
         </div>
     </div>
 
-    <div class="search-tags my-4"></div>
+    <div class="search-form__tags d-flex flex-wrap my-4">
+        <ngv-search-tag
+            *ngFor="let tag of searchTags"
+            (remove)="onTagRemove(tag)"
+            class="search-form__tag"
+            >{{ tag }}</ngv-search-tag
+        >
+    </div>
 </div>

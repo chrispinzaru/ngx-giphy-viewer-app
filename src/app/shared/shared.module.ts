@@ -7,6 +7,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { GifCardComponent } from './gif-card/gif-card.component';
 import { GifPaginationComponent } from './gif-pagination/gif-pagination.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchTagComponent } from './search-tag/search-tag.component';
 
 @NgModule({
     declarations: [
@@ -15,8 +17,14 @@ import { GifPaginationComponent } from './gif-pagination/gif-pagination.componen
         SearchFormComponent,
         GifCardComponent,
         GifPaginationComponent,
+        SearchTagComponent,
     ],
-    imports: [CommonModule, NgbPaginationModule],
+    imports: [
+        CommonModule,
+        NgbPaginationModule,
+        FormsModule,
+        ReactiveFormsModule,
+    ],
     exports: [
         HeaderComponent,
         FooterComponent,

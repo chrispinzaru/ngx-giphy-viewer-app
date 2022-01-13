@@ -1,0 +1,13 @@
+<span class="search-tag badge badge-dark">
+    <span class="search-tag__value">
+        <ng-content></ng-content>
+    </span>
+    <button
+        type="button"
+        class="search-tag__remove btn btn-dark ml-2"
+        aria-label="close"
+        (click)="handleClick()"
+    >
+        &times;
+    </button>
+</span>
