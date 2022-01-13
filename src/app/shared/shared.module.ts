@@ -4,9 +4,12 @@ import {
     NgbPaginationModule,
     NgbButtonsModule,
 } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-    declarations: [],
+    declarations: [HeaderComponent, FooterComponent],
     imports: [CommonModule, NgbPaginationModule, NgbButtonsModule],
+    exports: [HeaderComponent, FooterComponent],
 })
 export class SharedModule {}
