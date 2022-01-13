@@ -8,13 +8,20 @@ import { SearchResponse } from './giphy.interface';
 })
 export class GiphyApiService {
     protected readonly apiEndpoint = 'https://api.giphy.com/v1/';
-    protected readonly apiSearchEndpoint = `${this.apiEndpoint}gifs/search/`;
+    protected readonly apiSearchEndpoint = `${this.apiEndpoint}gifs/search`;
 
     constructor(private httpClient: HttpClient) {}
 
-    get(searchQuery: string = ''): Observable<SearchResponse> {
+    get(
+        searchQuery: string = '',
+        limit: number = 9
+    ): Observable<SearchResponse> {
+        const params: HttpParams = new HttpParams()
+            .set('q', searchQuery)
+            .set('limit', limit);
+
         return this.httpClient.get<SearchResponse>(this.apiSearchEndpoint, {
-            params: new HttpParams().set('q', searchQuery),
+            params,
         });
     }
 }
