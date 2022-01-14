@@ -1,11 +1,11 @@
 <div class="d-flex justify-content-center my-4">
-    <!--  mock pagination-->
     <ngb-pagination
-        [page]="13"
-        [pageSize]="9"
-        [collectionSize]="355"
+        [page]="page"
+        [pageSize]="count"
+        [collectionSize]="totalCount"
         [maxSize]="10"
         [rotate]="true"
+        (pageChange)="onPageChange($event)"
     >
     </ngb-pagination>
 </div>
