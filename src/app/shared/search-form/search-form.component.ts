@@ -10,7 +10,8 @@ export class SearchFormComponent {
     @Input() set query(searchQuery: string) {
         const rawSearchTags = this.parseQueryTags(searchQuery);
         if (rawSearchTags) {
-            this.searchTags = [...rawSearchTags];
+            this.searchTags = [...new Set(rawSearchTags)];
+            this.emitSearchQueryChange();
         }
     }
 
