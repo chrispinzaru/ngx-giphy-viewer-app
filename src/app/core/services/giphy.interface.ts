@@ -1,6 +1,6 @@
 export interface BaseResponse {
-    pagination: Pagination;
-    meta: {
+    pagination?: Pagination;
+    meta?: {
         status: number;
         msg: string;
         response_id: string;

@@ -12,12 +12,14 @@ export class GiphyApiService {
 
     constructor(private httpClient: HttpClient) {}
 
-    get(
+    search(
         searchQuery: string = '',
+        offset: number = 0,
         limit: number = 9
     ): Observable<SearchResponse> {
         const params: HttpParams = new HttpParams()
             .set('q', searchQuery)
+            .set('offset', offset)
             .set('limit', limit);
 
         return this.httpClient.get<SearchResponse>(this.apiSearchEndpoint, {
