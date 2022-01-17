@@ -1,11 +1,7 @@
 <div class="search-form">
     <div class="card">
         <div class="card-body">
-            <form
-                class="form-inline"
-                [formGroup]="searchForm"
-                (submit)="onSubmit()"
-            >
+            <form class="form-inline" [formGroup]="searchForm" (submit)="onClickSubmit()">
                 <input
                     #searchInput
                     formControlName="query"
@@ -30,7 +26,7 @@
     <div class="search-form__tags d-flex flex-wrap my-4">
         <ngv-search-tag
             *ngFor="let tag of searchTags"
-            (remove)="onTagRemove(tag)"
+            (remove)="onClickTagRemove(tag)"
             class="search-form__tag"
             >{{ tag }}</ngv-search-tag
         >
