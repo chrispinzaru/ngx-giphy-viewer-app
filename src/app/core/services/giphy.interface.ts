@@ -17,6 +17,12 @@ export interface SearchResponse extends BaseResponse {
     data: Gif[];
 }
 
+export type SearchParams = {
+    q: string;
+    limit?: number;
+    offset?: number;
+};
+
 export interface Gif {
     id: string;
     type: string;

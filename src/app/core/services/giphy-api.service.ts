@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { SearchResponse } from './giphy.interface';
+import { Observable, of } from 'rxjs';
+import { SearchParams, SearchResponse } from './giphy.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -12,18 +12,14 @@ export class GiphyApiService {
 
     constructor(private httpClient: HttpClient) {}
 
-    search(
-        searchQuery: string = '',
-        offset: number = 0,
-        limit: number = 9
-    ): Observable<SearchResponse> {
-        const params: HttpParams = new HttpParams()
-            .set('q', searchQuery)
+    search({ q = '', offset = 0, limit = 9 }: SearchParams): Observable<SearchResponse> {
+        const httpParams: HttpParams = new HttpParams()
+            .set('q', q)
             .set('offset', offset)
             .set('limit', limit);
 
         return this.httpClient.get<SearchResponse>(this.apiSearchEndpoint, {
-            params,
+            params: httpParams,
         });
     }
 }

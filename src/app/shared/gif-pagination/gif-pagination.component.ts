@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     styleUrls: ['./gif-pagination.component.scss'],
 })
 export class GifPaginationComponent {
-    @Input() page: number;
+    @Input() page: number = 1;
     @Input() count: number;
     @Input() totalCount: number;
 
