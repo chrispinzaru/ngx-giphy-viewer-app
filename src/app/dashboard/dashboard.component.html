@@ -1,6 +1,6 @@
 <ngv-search-form
     class="d-block my-4"
-    [query]="searchQuery"
+    [query]="searchQueryParams.q"
     (queryChange)="onSearchQueryChange($event)"
 ></ngv-search-form>
 
@@ -8,7 +8,7 @@
     <ng-container *ngTemplateOutlet="paginationTempRef"></ng-container>
 
     <div class="row">
-        <ng-container *ngIf="notFound$ | async; else results">
+        <ng-container *ngIf="gifsNotFound$ | async; else results">
             <div class="col text-center">No gifs found.</div>
         </ng-container>
 
@@ -24,10 +24,9 @@
 
 <ng-template #paginationTempRef>
     <ngv-gif-pagination
-        *ngIf="pagination"
-        [page]="pagination.offset"
-        [count]="pagination.count"
-        [totalCount]="pagination.total_count"
+        [page]="searchQueryParams.page"
+        [count]="searchPagination.count"
+        [totalCount]="searchPagination.total_count"
         (pageChange)="onPageChange($event)"
     ></ngv-gif-pagination>
 </ng-template>

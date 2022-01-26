@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'ngv-search-form',
@@ -13,7 +13,7 @@ export class SearchFormComponent {
     @Output() queryChange: EventEmitter<string> = new EventEmitter<string>();
 
     public searchForm = new FormGroup({
-        query: new FormControl(''),
+        query: new FormControl('', [Validators.maxLength(50)]),
     });
 
     public searchTags: string[] = [];

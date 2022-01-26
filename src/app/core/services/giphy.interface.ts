@@ -1,5 +1,5 @@
 export interface BaseResponse {
-    pagination?: Pagination;
+    pagination: Pagination;
     meta?: {
         status: number;
         msg: string;
